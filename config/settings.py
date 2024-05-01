@@ -91,6 +91,7 @@ LOCAL_APPS = [
     "apps.games",
     "apps.items",
     "apps.locations",
+    "apps.machines",
 ]
 
 

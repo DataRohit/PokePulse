@@ -69,6 +69,7 @@ from apps.locations.models import (
     RegionRoute,
     Region,
 )
+from apps.machines.models import MachineRoute, Machine
 
 
 # Class for command
@@ -127,6 +128,8 @@ class Command(BaseCommand):
         "PalParkArea": PalParkArea,
         "RegionRoute": RegionRoute,
         "Region": Region,
+        "MachineRoute": MachineRoute,
+        "Machine": Machine,
     }
 
     # Method to load the fixtures
