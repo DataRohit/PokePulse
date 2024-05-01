@@ -40,4 +40,7 @@ class BaseRouteView(APIView):
     def get(self, request):
         base_routes = BaseRoute.objects.all()
         serializer = BaseRouteSerializer(base_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)

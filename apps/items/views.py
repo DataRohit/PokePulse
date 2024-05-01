@@ -62,7 +62,10 @@ class ItemRouteView(APIView):
     def get(self, request):
         item_routes = ItemRoute.objects.all()
         serializer = ItemRouteSerializer(item_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the items
@@ -104,7 +107,10 @@ class ItemsView(APIView):
     def get(self, request, entity_id):
         items = Item.objects.filter(entity_id=entity_id)
         serializer = ItemSerializer(items, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the item attribute routes
@@ -138,7 +144,10 @@ class ItemAttributeRouteView(APIView):
     def get(self, request):
         item_attribute_routes = ItemAttributeRoute.objects.all()
         serializer = ItemAttributeRouteSerializer(item_attribute_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the item attributes
@@ -180,7 +189,10 @@ class ItemAttributesView(APIView):
     def get(self, request, entity_id):
         item_attributes = ItemAttribute.objects.filter(entity_id=entity_id)
         serializer = ItemAttributeSerializer(item_attributes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the item category routes
@@ -214,7 +226,10 @@ class ItemCategoryRouteView(APIView):
     def get(self, request):
         item_category_routes = ItemCategoryRoute.objects.all()
         serializer = ItemCategoryRouteSerializer(item_category_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the item categories
@@ -256,7 +271,10 @@ class ItemCategoriesView(APIView):
     def get(self, request, entity_id):
         item_categories = ItemCategory.objects.filter(entity_id=entity_id)
         serializer = ItemCategorySerializer(item_categories, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the item fling effect routes
@@ -290,7 +308,10 @@ class ItemFlingEffectRouteView(APIView):
     def get(self, request):
         item_fling_effect_routes = ItemFlingEffectRoute.objects.all()
         serializer = ItemFlingEffectRouteSerializer(item_fling_effect_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the item fling effects
@@ -332,7 +353,10 @@ class ItemFlingEffectsView(APIView):
     def get(self, request, entity_id):
         item_fling_effects = ItemFlingEffect.objects.filter(entity_id=entity_id)
         serializer = ItemFlingEffectSerializer(item_fling_effects, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the item pocket routes
@@ -366,7 +390,10 @@ class ItemPocketRouteView(APIView):
     def get(self, request):
         item_pocket_routes = ItemPocketRoute.objects.all()
         serializer = ItemPocketRouteSerializer(item_pocket_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the item pockets
@@ -408,4 +435,7 @@ class ItemPocketsView(APIView):
     def get(self, request, entity_id):
         item_pockets = ItemPocket.objects.filter(entity_id=entity_id)
         serializer = ItemPocketSerializer(item_pockets, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)

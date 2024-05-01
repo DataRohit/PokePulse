@@ -54,7 +54,10 @@ class BerryRouteView(APIView):
     def get(self, request):
         berry_routes = BerryRoute.objects.all()
         serializer = BerryRouteSerializer(berry_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the berries
@@ -96,7 +99,10 @@ class BerriesView(APIView):
     def get(self, request, entity_id):
         berries = Berry.objects.filter(entity_id=entity_id)
         serializer = BerrySerializer(berries, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the berry firmnesses route
@@ -130,7 +136,10 @@ class BerryFirmnessRouteView(APIView):
     def get(self, request):
         berry_firmness_routes = BerryFirmnessRoute.objects.all()
         serializer = BerryFirmnessRouteSerializer(berry_firmness_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the berry firmnesses
@@ -172,7 +181,10 @@ class BerryFirmnessesView(APIView):
     def get(self, request, entity_id):
         berry_firmnesses = BerryFirmness.objects.filter(entity_id=entity_id)
         serializer = BerryFirmnessSerializer(berry_firmnesses, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to server the berry flavor route
@@ -206,7 +218,10 @@ class BerryFlavorRouteView(APIView):
     def get(self, request):
         berry_flavor_routes = BerryFlavorRoute.objects.all()
         serializer = BerryFlavorRouteSerializer(berry_flavor_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the berry flavors
@@ -248,4 +263,7 @@ class BerryFlavorsView(APIView):
     def get(self, request, entity_id):
         berry_flavors = BerryFlavor.objects.filter(entity_id=entity_id)
         serializer = BerryFlavorSerializer(berry_flavors, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)

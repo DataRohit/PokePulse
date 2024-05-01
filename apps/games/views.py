@@ -58,7 +58,10 @@ class GenerationRouteView(APIView):
     def get(self, request):
         generation_routes = GenerationRoute.objects.all()
         serializer = GenerationRouteSerializer(generation_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the generations
@@ -100,7 +103,10 @@ class GenerationsView(APIView):
     def get(self, request, entity_id):
         generations = Generation.objects.filter(entity_id=entity_id)
         serializer = GenerationSerializer(generations, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View for the pokedexes route
@@ -134,7 +140,10 @@ class PokedexRouteView(APIView):
     def get(self, request):
         pokedex_routes = PokedexRoute.objects.all()
         serializer = PokedexRouteSerializer(pokedex_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View for the pokedexes
@@ -176,7 +185,10 @@ class PokedexesView(APIView):
     def get(self, request, entity_id):
         pokedexes = Pokedex.objects.filter(entity_id=entity_id)
         serializer = PokedexSerializer(pokedexes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View for the versions route
@@ -210,7 +222,10 @@ class VersionRouteView(APIView):
     def get(self, request):
         version_routes = VersionRoute.objects.all()
         serializer = VersionRouteSerializer(version_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View for the versions
@@ -252,7 +267,10 @@ class VersionsView(APIView):
     def get(self, request, entity_id):
         versions = Version.objects.filter(entity_id=entity_id)
         serializer = VersionSerializer(versions, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View for the version groups route
@@ -286,7 +304,10 @@ class VersionGroupRouteView(APIView):
     def get(self, request):
         version_group_routes = VersionGroupRoute.objects.all()
         serializer = VersionGroupRouteSerializer(version_group_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View for the version groups
@@ -328,4 +349,7 @@ class VersionGroupsView(APIView):
     def get(self, request, entity_id):
         version_groups = VersionGroup.objects.filter(entity_id=entity_id)
         serializer = VersionGroupSerializer(version_groups, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
