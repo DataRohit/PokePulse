@@ -9,6 +9,13 @@ class NamedAPIResource(EmbeddedDocument):
     url = fields.StringField(max_length=100, required=True)
 
 
+# Embedded Document for Description
+class Description(EmbeddedDocument):
+    # Fields
+    description = fields.StringField(max_length=255, required=True)
+    language = fields.EmbeddedDocumentField(NamedAPIResource)
+
+
 # Embedded Document for Name
 class Name(EmbeddedDocument):
     # Fields

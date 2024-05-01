@@ -37,6 +37,16 @@ from apps.evolutions.models import (
     EvolutionTriggerRoute,
     EvolutionTrigger,
 )
+from apps.games.models import (
+    GenerationRoute,
+    Generation,
+    PokedexRoute,
+    Pokedex,
+    VersionRoute,
+    Version,
+    VersionGroupRoute,
+    VersionGroup,
+)
 
 
 # Class for command
@@ -69,6 +79,14 @@ class Command(BaseCommand):
         "EvolutionChain": EvolutionChain,
         "EvolutionTriggerRoute": EvolutionTriggerRoute,
         "EvolutionTrigger": EvolutionTrigger,
+        "GenerationRoute": GenerationRoute,
+        "Generation": Generation,
+        "PokedexRoute": PokedexRoute,
+        "Pokedex": Pokedex,
+        "VersionRoute": VersionRoute,
+        "Version": Version,
+        "VersionGroupRoute": VersionGroupRoute,
+        "VersionGroup": VersionGroup,
     }
 
     # Method to load the fixtures

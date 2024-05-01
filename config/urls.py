@@ -21,6 +21,7 @@ urlpatterns += [
     path("api/", include("apps.contests.urls")),
     path("api/", include("apps.encounters.urls")),
     path("api/", include("apps.evolutions.urls")),
+    path("api/", include("apps.games.urls")),
 ]
 
 
@@ -50,5 +51,5 @@ urlpatterns += [
         schema_view.with_ui("swagger", cache_timeout=0),
         name="schema-swagger-ui",
     ),
-    path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
+    path("", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
 ]

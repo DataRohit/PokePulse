@@ -9,6 +9,13 @@ class NamedAPIResourceSerializer(serializers.Serializer):
     url = serializers.CharField(max_length=100, required=True)
 
 
+# Serializer for Description
+class DescriptionSerializer(serializers.Serializer):
+    # Fields
+    description = serializers.CharField(max_length=255, required=True)
+    language = NamedAPIResourceSerializer()
+
+
 # Serializer for Name
 class NameSerializer(serializers.Serializer):
     # Fields
