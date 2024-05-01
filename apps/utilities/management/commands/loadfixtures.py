@@ -47,6 +47,18 @@ from apps.games.models import (
     VersionGroupRoute,
     VersionGroup,
 )
+from apps.items.models import (
+    ItemRoute,
+    Item,
+    ItemCategoryRoute,
+    ItemCategory,
+    ItemAttributeRoute,
+    ItemAttribute,
+    ItemFlingEffectRoute,
+    ItemFlingEffect,
+    ItemPocketRoute,
+    ItemPocket,
+)
 
 
 # Class for command
@@ -87,6 +99,16 @@ class Command(BaseCommand):
         "Version": Version,
         "VersionGroupRoute": VersionGroupRoute,
         "VersionGroup": VersionGroup,
+        "ItemRoute": ItemRoute,
+        "Item": Item,
+        "ItemCategoryRoute": ItemCategoryRoute,
+        "ItemCategory": ItemCategory,
+        "ItemAttributeRoute": ItemAttributeRoute,
+        "ItemAttribute": ItemAttribute,
+        "ItemFlingEffectRoute": ItemFlingEffectRoute,
+        "ItemFlingEffect": ItemFlingEffect,
+        "ItemPocketRoute": ItemPocketRoute,
+        "ItemPocket": ItemPocket,
     }
 
     # Method to load the fixtures
