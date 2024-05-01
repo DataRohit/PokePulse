@@ -50,7 +50,10 @@ class EvolutionChainRouteView(APIView):
     def get(self, request):
         evolution_chain_routes = EvolutionChainRoute.objects.all()
         serializer = EvolutionChainRouteSerializer(evolution_chain_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the evolution chains
@@ -92,7 +95,10 @@ class EvolutionChainView(APIView):
     def get(self, request, entity_id):
         evolution_chains = EvolutionChain.objects.filter(entity_id=entity_id)
         serializer = EvolutionChainSerializer(evolution_chains, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the evolution trigger routes
@@ -128,7 +134,10 @@ class EvolutionTriggerRouteView(APIView):
         serializer = EvolutionTriggerRouteSerializer(
             evolution_trigger_routes, many=True
         )
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the evolution triggers
@@ -170,4 +179,7 @@ class EvolutionTriggerView(APIView):
     def get(self, request, entity_id):
         evolution_triggers = EvolutionTrigger.objects.filter(entity_id=entity_id)
         serializer = EvolutionTriggerSerializer(evolution_triggers, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)

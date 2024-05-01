@@ -54,7 +54,10 @@ class EncounterMethodRouteView(APIView):
     def get(self, request):
         encounter_method_routes = EncounterMethodRoute.objects.all()
         serializer = EncounterMethodRouteSerializer(encounter_method_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the encounter methods
@@ -96,7 +99,10 @@ class EncounterMethodView(APIView):
     def get(self, request, entity_id):
         encounter_methods = EncounterMethod.objects.filter(entity_id=entity_id)
         serializer = EncounterMethodSerializer(encounter_methods, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the encounter condition routes
@@ -132,7 +138,10 @@ class EncounterConditionRouteView(APIView):
         serializer = EncounterConditionRouteSerializer(
             encounter_condition_routes, many=True
         )
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the encounter conditions
@@ -174,7 +183,10 @@ class EncounterConditionView(APIView):
     def get(self, request, entity_id):
         encounter_conditions = EncounterCondition.objects.filter(entity_id=entity_id)
         serializer = EncounterConditionSerializer(encounter_conditions, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the encounter condition value routes
@@ -210,7 +222,10 @@ class EncounterConditionValueRouteView(APIView):
         serializer = EncounterConditionValueRouteSerializer(
             encounter_condition_value_routes, many=True
         )
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the encounter condition value
@@ -256,4 +271,7 @@ class EncounterConditionValueView(APIView):
         serializer = EncounterConditionValueSerializer(
             encounter_condition_values, many=True
         )
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)

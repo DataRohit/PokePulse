@@ -54,7 +54,10 @@ class ContestTypeRouteView(APIView):
     def get(self, request):
         contest_type_routes = ContestTypeRoute.objects.all()
         serializer = ContestTypeRouteSerializer(contest_type_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the contest types
@@ -96,7 +99,10 @@ class ContestTypesView(APIView):
     def get(self, request, entity_id):
         contest_types = ContestType.objects.filter(entity_id=entity_id)
         serializer = ContestTypeSerializer(contest_types, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the contest effect routes
@@ -130,7 +136,10 @@ class ContestEffectRouteView(APIView):
     def get(self, request):
         contest_effect_routes = ContestEffectRoute.objects.all()
         serializer = ContestEffectRouteSerializer(contest_effect_routes, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the contest effects
@@ -172,7 +181,10 @@ class ContestEffectsView(APIView):
     def get(self, request, entity_id):
         contest_effects = ContestEffect.objects.filter(entity_id=entity_id)
         serializer = ContestEffectSerializer(contest_effects, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the super contest effect routes
@@ -208,7 +220,10 @@ class SuperContestEffectRouteView(APIView):
         serializer = SuperContestEffectRouteSerializer(
             super_contest_effect_routes, many=True
         )
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # View to serve the super contest effects
@@ -250,4 +265,7 @@ class SuperContestEffectsView(APIView):
     def get(self, request, entity_id):
         super_contest_effects = SuperContestEffect.objects.filter(entity_id=entity_id)
         serializer = SuperContestEffectSerializer(super_contest_effects, many=True)
-        return Response(serializer.data)
+        if serializer.data:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
