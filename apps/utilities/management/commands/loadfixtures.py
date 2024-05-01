@@ -59,6 +59,16 @@ from apps.items.models import (
     ItemPocketRoute,
     ItemPocket,
 )
+from apps.locations.models import (
+    LocationRoute,
+    Location,
+    LocationAreaRoute,
+    LocationArea,
+    PalParkAreaRoute,
+    PalParkArea,
+    RegionRoute,
+    Region,
+)
 
 
 # Class for command
@@ -109,6 +119,14 @@ class Command(BaseCommand):
         "ItemFlingEffect": ItemFlingEffect,
         "ItemPocketRoute": ItemPocketRoute,
         "ItemPocket": ItemPocket,
+        "LocationRoute": LocationRoute,
+        "Location": Location,
+        "LocationAreaRoute": LocationAreaRoute,
+        "LocationArea": LocationArea,
+        "PalParkAreaRoute": PalParkAreaRoute,
+        "PalParkArea": PalParkArea,
+        "RegionRoute": RegionRoute,
+        "Region": Region,
     }
 
     # Method to load the fixtures
