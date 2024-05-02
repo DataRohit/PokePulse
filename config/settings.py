@@ -165,7 +165,7 @@ MIDDLEWARE = [
 
 
 # Static files settings
-STATIC_ROOT = str(BASE_DIR / "staticfiles")
+STATIC_ROOT = BASE_DIR / "staticfiles" / "static"
 STATIC_URL = "/static/"
 STATICFILES_DIRS = []
 STATICFILES_FINDERS = [
