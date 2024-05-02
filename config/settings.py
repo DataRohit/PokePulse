@@ -93,6 +93,7 @@ LOCAL_APPS = [
     "apps.locations",
     "apps.machines",
     "apps.moves",
+    "apps.pokemon",
 ]
 
 

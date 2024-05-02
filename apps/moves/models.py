@@ -6,8 +6,8 @@ from apps.utilities.models import (
     APIResource,
     NamedAPIResource,
     Description,
-    Effect,
 )
+from apps.pokemon.models import AbilityEffectChange
 from mongoengine import Document, EmbeddedDocument, fields
 
 
@@ -83,13 +83,6 @@ class ContestComboSets(EmbeddedDocument):
     # Fields
     normal = fields.EmbeddedDocumentField(ContestComboDetail)
     super = fields.EmbeddedDocumentField(ContestComboDetail)
-
-
-# Embedded Document for AbilityEffectChange
-class AbilityEffectChange(EmbeddedDocument):
-    # Fields
-    effect_entries = fields.ListField(fields.EmbeddedDocumentField(Effect))
-    version_group = fields.EmbeddedDocumentField(NamedAPIResource)
 
 
 # Model for Move

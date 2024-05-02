@@ -7,8 +7,8 @@ from apps.utilities.serializers import (
     NamedAPIResourceSerializer,
     DescriptionSerializer,
     APIResourceSerializer,
-    EffectSerializer,
 )
+from apps.pokemon.serializers import AbilityEffectChangeSerializer
 from apps.moves.models import (
     MoveRoute,
     Move,
@@ -101,13 +101,6 @@ class ContestComboSetsSerializer(serializers.Serializer):
     # Fields
     normal = ContestComboDetailSerializer()
     super = ContestComboDetailSerializer()
-
-
-# Serializer for AbilityEffectChange
-class AbilityEffectChangeSerializer(serializers.Serializer):
-    # Fields
-    effect_entries = EffectSerializer(many=True)
-    version_group = NamedAPIResourceSerializer()
 
 
 # Serializer for Move
