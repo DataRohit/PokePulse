@@ -22,7 +22,7 @@ class GenerationRoute(Document):
 # Model for Generation
 class Generation(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     abilities = fields.ListField(fields.EmbeddedDocumentField(NamedAPIResource))
     names = fields.ListField(fields.EmbeddedDocumentField(Name))
@@ -83,7 +83,7 @@ class PokemonEntry(EmbeddedDocument):
 # Model for Pokedex
 class Pokedex(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     is_main_series = fields.BooleanField(required=True)
     descriptions = fields.ListField(fields.EmbeddedDocumentField(Description))
@@ -127,7 +127,7 @@ class VersionRoute(Document):
 # Model for Version
 class Version(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     names = fields.ListField(fields.EmbeddedDocumentField(Name))
     version_group = fields.EmbeddedDocumentField(NamedAPIResource)
@@ -163,7 +163,7 @@ class VersionGroupRoute(Document):
 # Model for VersionGroup
 class VersionGroup(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     order = fields.IntField(required=True)
     generation = fields.EmbeddedDocumentField(NamedAPIResource)

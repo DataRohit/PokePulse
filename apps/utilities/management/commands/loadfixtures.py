@@ -70,6 +70,22 @@ from apps.locations.models import (
     Region,
 )
 from apps.machines.models import MachineRoute, Machine
+from apps.moves.models import (
+    MoveRoute,
+    Move,
+    MoveAilmentRoute,
+    MoveAilment,
+    MoveBattleStyleRoute,
+    MoveBattleStyle,
+    MoveCategoryRoute,
+    MoveCategory,
+    MoveDamageClassRoute,
+    MoveDamageClass,
+    MoveLearnMethodRoute,
+    MoveLearnMethod,
+    MoveTargetRoute,
+    MoveTarget,
+)
 
 
 # Class for command
@@ -130,6 +146,20 @@ class Command(BaseCommand):
         "Region": Region,
         "MachineRoute": MachineRoute,
         "Machine": Machine,
+        "MoveRoute": MoveRoute,
+        "Move": Move,
+        "MoveAilmentRoute": MoveAilmentRoute,
+        "MoveAilment": MoveAilment,
+        "MoveBattleStyleRoute": MoveBattleStyleRoute,
+        "MoveBattleStyle": MoveBattleStyle,
+        "MoveCategoryRoute": MoveCategoryRoute,
+        "MoveCategory": MoveCategory,
+        "MoveDamageClassRoute": MoveDamageClassRoute,
+        "MoveDamageClass": MoveDamageClass,
+        "MoveLearnMethodRoute": MoveLearnMethodRoute,
+        "MoveLearnMethod": MoveLearnMethod,
+        "MoveTargetRoute": MoveTargetRoute,
+        "MoveTarget": MoveTarget,
     }
 
     # Method to load the fixtures

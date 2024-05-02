@@ -20,7 +20,7 @@ class MachineRoute(Document):
 # Model for Machine
 class Machine(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     item = fields.EmbeddedDocumentField(NamedAPIResource)
     move = fields.EmbeddedDocumentField(NamedAPIResource)
     version_group = fields.EmbeddedDocumentField(NamedAPIResource)

@@ -27,7 +27,7 @@ class LocationRoute(Document):
 # Model for Location
 class Location(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     region = fields.EmbeddedDocumentField(NamedAPIResource)
     names = fields.ListField(fields.EmbeddedDocumentField(Name))
@@ -107,7 +107,7 @@ class EncounterMethodRate(EmbeddedDocument):
 # Model for LocationArea
 class LocationArea(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     game_index = fields.IntField(required=True)
     encounter_method_rates = fields.ListField(
@@ -166,7 +166,7 @@ class PalParkEncounterSpecies(EmbeddedDocument):
 # Model for PalParkArea
 class PalParkArea(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     names = fields.ListField(fields.EmbeddedDocumentField(Name))
     pokemon_encounters = fields.ListField(
@@ -204,7 +204,7 @@ class RegionRoute(Document):
 # Model for Region
 class Region(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     locations = fields.ListField(fields.EmbeddedDocumentField(NamedAPIResource))
     name = fields.StringField(max_length=100, required=True)
     names = fields.ListField(fields.EmbeddedDocumentField(Name))

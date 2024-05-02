@@ -30,7 +30,7 @@ class ContestName(EmbeddedDocument):
 # Model for ContestType
 class ContestType(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     berry_flavor = fields.EmbeddedDocumentField(NamedAPIResource)
     names = fields.ListField(fields.EmbeddedDocumentField(ContestName))
@@ -64,7 +64,7 @@ class ContestEffectRoute(Document):
 # Model for ContestEffect
 class ContestEffect(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     appeal = fields.IntField(required=True, min_value=1)
     jam = fields.IntField(required=True, min_value=1)
     effect_entries = fields.ListField(fields.EmbeddedDocumentField(Effect))
@@ -100,7 +100,7 @@ class SuperContestEffectRoute(Document):
 # Model for SuperContestEffect
 class SuperContestEffect(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     appeal = fields.IntField(required=True, min_value=1)
     flavor_text_entries = fields.ListField(fields.EmbeddedDocumentField(FlavorText))
     moves = fields.ListField(fields.EmbeddedDocumentField(NamedAPIResource))

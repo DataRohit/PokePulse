@@ -52,7 +52,7 @@ class ChainLink(EmbeddedDocument):
 # Model for EvolutionChain
 class EvolutionChain(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     baby_trigger_item = fields.EmbeddedDocumentField(NamedAPIResource)
     chain = fields.EmbeddedDocumentField(ChainLink)
 
@@ -85,7 +85,7 @@ class EvolutionTriggerRoute(Document):
 # Model for EvolutionTrigger
 class EvolutionTrigger(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     names = fields.ListField(fields.EmbeddedDocumentField(Name))
     pokemon_species = fields.ListField(fields.EmbeddedDocumentField(NamedAPIResource))

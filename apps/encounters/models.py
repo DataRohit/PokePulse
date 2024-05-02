@@ -22,7 +22,7 @@ class EncounterMethodRoute(Document):
 # Model for EncounterMethod
 class EncounterMethod(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     order = fields.IntField(required=True, min_value=1)
     names = fields.ListField(fields.EmbeddedDocumentField(Name))
@@ -58,7 +58,7 @@ class EncounterConditionRoute(Document):
 # Model for EncounterCondition
 class EncounterCondition(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     names = fields.ListField(fields.EmbeddedDocumentField(Name))
     values = fields.ListField(fields.EmbeddedDocumentField(NamedAPIResource))
@@ -94,7 +94,7 @@ class EncounterConditionValueRoute(Document):
 # Model for EncounterConditionValue
 class EncounterConditionValue(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     condition = fields.EmbeddedDocumentField(NamedAPIResource)
     names = fields.ListField(fields.EmbeddedDocumentField(Name))

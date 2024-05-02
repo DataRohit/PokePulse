@@ -92,6 +92,7 @@ LOCAL_APPS = [
     "apps.items",
     "apps.locations",
     "apps.machines",
+    "apps.moves",
 ]
 
 
