@@ -1,5 +1,5 @@
 # Imports
-from mongoengine import EmbeddedDocument, fields
+from mongoengine import EmbeddedDocument, Document, fields
 
 
 # Embedded Document for APIResource
@@ -99,9 +99,49 @@ class VersionGameIndex(EmbeddedDocument):
     version = fields.EmbeddedDocumentField(NamedAPIResource)
 
 
-# Embedded VersionGroupFlavorText
+# Embedded Document for VersionGroupFlavorText
 class VersionGroupFlavorText(EmbeddedDocument):
     # Fields
     text = fields.StringField(max_length=100, required=True)
     language = fields.EmbeddedDocumentField(NamedAPIResource)
     version_group = fields.EmbeddedDocumentField(NamedAPIResource)
+
+
+# Model for LanguageRoute
+class LanguageRoute(Document):
+    # Fields
+    name = fields.StringField(max_length=100, required=True)
+    url = fields.StringField(max_length=100, required=True)
+
+    # Meta
+    meta = {
+        "collection": "language_routes",
+        "indexes": [
+            "name",
+            "url",
+        ],
+    }
+
+
+# Model for Language
+class Language(Document):
+    # Fields
+    entity_id = fields.IntField(required=True, unique=True)
+    name = fields.StringField(max_length=100, required=True)
+    official = fields.BooleanField(required=True)
+    iso639 = fields.StringField(max_length=100, required=True)
+    iso3166 = fields.StringField(max_length=100, required=True)
+    names = fields.ListField(fields.EmbeddedDocumentField(Name))
+    
+    # Meta
+    meta = {
+        "collection": "languages",
+        "indexes": [
+            "entity_id",
+            "name",
+            "official",
+            "iso639",
+            "iso3166",
+            "names",
+        ]
+    }
