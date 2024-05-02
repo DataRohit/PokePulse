@@ -1,5 +1,6 @@
 # Imports
 from rest_framework import serializers
+from apps.utilities.models import LanguageRoute, Language
 
 
 # Serializer for APIResource
@@ -105,3 +106,47 @@ class VersionGroupFlavorTextSerializer(serializers.Serializer):
     text = serializers.CharField(required=True)
     language = NamedAPIResourceSerializer()
     version_group = NamedAPIResourceSerializer()
+
+
+# Serializer for LanguageRoute
+class LanguageRouteSerializer(serializers.Serializer):
+    # Fields
+    name = serializers.CharField(max_length=100, required=True)
+    url = serializers.CharField(max_length=100, required=True)
+    
+    # Method to create a new LanguageRoute
+    def create(self, validated_data):
+        return LanguageRoute.objects.create(**validated_data)
+
+    # Method to update a LanguageRoute
+    def update(self, instance, validated_data):
+        instance.name = validated_data.get('name', instance.name)
+        instance.url = validated_data.get('url', instance.url)
+        instance.save()
+        return instance
+
+
+# Serializer for Language
+class LanguageSerializer(serializers.Serializer):
+    # Fields
+    entity_id = serializers.IntegerField(required=True)
+    name = serializers.CharField(max_length=100, required=True)
+    official = serializers.BooleanField(required=True)
+    iso639 = serializers.CharField(max_length=100, required=True)
+    iso3166 = serializers.CharField(max_length=100, required=True)
+    names = NameSerializer(many=True)
+    
+    # Method to create a new Language
+    def create(self, validated_data):
+        return Language.objects.create(**validated_data)
+
+    # Method to update a Language
+    def update(self, instance, validated_data):
+        instance.entity_id = validated_data.get('entity_id', instance.entity_id)
+        instance.name = validated_data.get('name', instance.name)
+        instance.official = validated_data.get('official', instance.official)
+        instance.iso639 = validated_data.get('iso639', instance.iso639)
+        instance.iso3166 = validated_data.get('iso3166', instance.iso3166)
+        instance.names = validated_data.get('names', instance.names)
+        instance.save()
+        return instance

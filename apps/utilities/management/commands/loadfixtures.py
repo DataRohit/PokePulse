@@ -118,6 +118,7 @@ from apps.pokemon.models import (
     TypeRoute,
     Type,
 )
+from apps.utilities.models import LanguageRoute, Language
 
 
 # Class for command
@@ -222,6 +223,8 @@ class Command(BaseCommand):
         "Stat": Stat,
         "TypeRoute": TypeRoute,
         "Type": Type,
+        "LanguageRoute": LanguageRoute,
+        "Language": Language,
     }
 
     # Method to load the fixtures

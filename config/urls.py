@@ -27,6 +27,7 @@ urlpatterns += [
     path("api/", include("apps.machines.urls")),
     path("api/", include("apps.moves.urls")),
     path("api/", include("apps.pokemon.urls")),
+    path("api/", include("apps.utilities.urls")),
 ]
 
 
