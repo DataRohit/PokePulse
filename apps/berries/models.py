@@ -29,7 +29,7 @@ class BerryFlavorMap(EmbeddedDocument):
 # Model for Berry
 class Berry(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     growth_time = fields.IntField(required=True)
     max_harvest = fields.IntField(required=True)
@@ -81,7 +81,7 @@ class BerryFirmnessRoute(Document):
 # Model for BerryFirmness
 class BerryFirmness(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     berries = fields.ListField(fields.EmbeddedDocumentField(NamedAPIResource))
     names = fields.ListField(fields.EmbeddedDocumentField(Name))
@@ -119,7 +119,7 @@ class FlavorBerryMap(EmbeddedDocument):
 # Model for BerryFlavor
 class BerryFlavor(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     berries = fields.ListField(fields.EmbeddedDocumentField(FlavorBerryMap))
     contest_type = fields.EmbeddedDocumentField(NamedAPIResource)

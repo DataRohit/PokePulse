@@ -88,6 +88,11 @@ LOCAL_APPS = [
     "apps.contests",
     "apps.encounters",
     "apps.evolutions",
+    "apps.games",
+    "apps.items",
+    "apps.locations",
+    "apps.machines",
+    "apps.moves",
 ]
 
 

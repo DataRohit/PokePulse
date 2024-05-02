@@ -54,7 +54,7 @@ class ItemSprites(EmbeddedDocument):
 # Model for Item
 class Item(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     cost = fields.IntField(required=True)
     fling_power = fields.IntField(required=True)
@@ -114,7 +114,7 @@ class ItemAttributeRoute(Document):
 # Model for ItemAttribute
 class ItemAttribute(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     items = fields.ListField(fields.EmbeddedDocumentField(NamedAPIResource))
     names = fields.ListField(fields.EmbeddedDocumentField(Name))
@@ -152,7 +152,7 @@ class ItemCategoryRoute(Document):
 # Model for ItemCategory
 class ItemCategory(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     items = fields.ListField(fields.EmbeddedDocumentField(NamedAPIResource))
     names = fields.ListField(fields.EmbeddedDocumentField(Name))
@@ -190,7 +190,7 @@ class ItemFlingEffectRoute(Document):
 # Model for ItemFlingEffect
 class ItemFlingEffect(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     effect_entries = fields.ListField(fields.EmbeddedDocumentField(Effect))
     items = fields.ListField(fields.EmbeddedDocumentField(NamedAPIResource))
@@ -226,7 +226,7 @@ class ItemPocketRoute(Document):
 # Model for ItemPocket
 class ItemPocket(Document):
     # Fields
-    entity_id = fields.IntField(required=True, unique=True, min_value=1)
+    entity_id = fields.IntField(required=True, unique=True)
     name = fields.StringField(max_length=100, required=True)
     categories = fields.ListField(fields.EmbeddedDocumentField(NamedAPIResource))
     names = fields.ListField(fields.EmbeddedDocumentField(Name))

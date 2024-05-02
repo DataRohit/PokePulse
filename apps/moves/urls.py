@@ -1,0 +1,81 @@
+# Imports
+from django.urls import path
+from apps.moves.views import (
+    MoveRouteView,
+    MovesView,
+    MoveAilmentRouteView,
+    MoveAilmentsView,
+    MoveCategoryRouteView,
+    MoveCategoriesView,
+    MoveDamageClassRouteView,
+    MoveDamageClassesView,
+    MoveLearnMethodRouteView,
+    MoveLearnMethodsView,
+    MoveTargetRouteView,
+    MoveTargetsView,
+)
+
+
+# Add the path to router
+urlpatterns = [
+    path(
+        "move/",
+        MoveRouteView.as_view(),
+        name="api--move-routes",
+    ),
+    path(
+        "move/<int:entity_id>/",
+        MovesView.as_view(),
+        name="api--moves",
+    ),
+    path(
+        "move-ailment/",
+        MoveAilmentRouteView.as_view(),
+        name="api--move-ailment-routes",
+    ),
+    path(
+        "move-ailment/<int:entity_id>/",
+        MoveAilmentsView.as_view(),
+        name="api--move-ailments",
+    ),
+    path(
+        "move-category/",
+        MoveCategoryRouteView.as_view(),
+        name="api--move-category-routes",
+    ),
+    path(
+        "move-category/<int:entity_id>/",
+        MoveCategoriesView.as_view(),
+        name="api--move-categories",
+    ),
+    path(
+        "move-damage-class/",
+        MoveDamageClassRouteView.as_view(),
+        name="api--move-damage-class-routes",
+    ),
+    path(
+        "move-damage-class/<int:entity_id>/",
+        MoveDamageClassesView.as_view(),
+        name="api--move-damage-classes",
+    ),
+    path(
+        "move-learn-method/",
+        MoveLearnMethodRouteView.as_view(),
+        name="api--move-learn-method-routes",
+    ),
+    path(
+        "move-learn-method/<int:entity_id>/",
+        MoveLearnMethodsView.as_view(),
+        name="api--move-learn-methods",
+    ),
+    path(
+        "move-target/",
+        MoveTargetRouteView.as_view(),
+        name="api--move-target-routes",
+    ),
+    path(
+        "move-target/<int:entity_id>/",
+        MoveTargetsView.as_view(),
+        name="api--move-targets",
+    ),
+]
